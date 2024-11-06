@@ -138,9 +138,9 @@ The code snippet below is an example of file header, **extracted from the file [
 
 ```
 HEADER;
-FILE_DESCRIPTION(('ViewDefinition [Alignment-basedReferenceView]'),'2;1');
-FILE_NAME('Header example.ifc', '2022-09-16T10:35:07', ('Evandro Alfieri'), ('buildingSMART Int.'), 'MyToolboxName Version 1.0', 'MyApplicationName Version 22', 'none');
-FILE_SCHEMA(('IFC4X3_ADD1'));
+FILE_DESCRIPTION(('ViewDefinition [Alignment-basedView]'),'2;1');
+FILE_NAME('Header example.ifc', '2022-09-16T10:35:07', ('Evandro Alfieri'), ('buildingSMART Int.'), 'IFC Motor 1.0', 'Company - Application - 26.0.0.0', 'none');
+FILE_SCHEMA(('IFC4X3_ADD2'));
 ENDSEC;`
 ```
 
