@@ -1,15 +1,15 @@
 ISO-10303-21;
 HEADER;
-FILE_DESCRIPTION (('ViewDefinition[Alignment-basedReferenceView]'), '2;1');
-FILE_NAME ('Georeferencing_GEOGCS(EPSG)-RO.ifc', '2022-11-16T10:37:00', (), (), '(before manual edit) ACCA_IFC.dll Version 500', 'ACCA usBIM.infra', $);
-FILE_SCHEMA (('IFC4X3_ADD1'));
+FILE_DESCRIPTION (('ViewDefinition[Alignment-basedView]'), '2;1');
+FILE_NAME ('Georeferencing_GEOGCS(EPSG)-RO.ifc', '2022-11-16T10:37:00', (''), (''), 'redacted', 'redacted', '');
+FILE_SCHEMA (('IFC4X3_ADD2'));
 ENDSEC;
 DATA;
 /* This file is produced manually by Evandro starting from the examples contained in: Jaud et al. - Georeferencing in IFC: meeting the requirements of infrastructure and building industries */
 /* DOI: https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/X-4-W2-2022/145/2022/ */
 
 /*The basis definitions of an IfcProject and IfcGeometricRepresentationContext */
-#1=IFCPROJECT('2DAvEupIz0HQr73cMaawtY',$, $, $, $, $, $, (#21), #11);
+#1=IFCPROJECT('2DAvEupIz0HQr73cMaawtY',$, 'MyProject', $, $, $, $, (#21), #11);
 #2=IFCDIRECTION((1., 0., 0.));
 #4=IFCDIRECTION((0., 0., 1.));
 #5=IFCCARTESIANPOINT((0., 0., 0.));
@@ -21,10 +21,11 @@ DATA;
 #15=IFCCONVERSIONBASEDUNIT(#16,.PLANEANGLEUNIT., 'degree', #14);
 #16=IFCDIMENSIONALEXPONENTS(0, 0, 0, 0, 0, 0, 0);
 #21=IFCGEOMETRICREPRESENTATIONCONTEXT($,'Model', 3, 1.E-6, #22, #7);
+#35= IFCGEOMETRICREPRESENTATIONSUBCONTEXT('Body','Model',*,*,*,*,#21,$,.MODEL_VIEW.,$);
 #22=IFCAXIS2PLACEMENT3D(#5, #4, #2);
 
 /* Georeferencing data of an IFC dataset in a Geographic CRS. The site with this context lies at the Bell tower on the island of Lake Bled in Slovenia.*/
-#301=IFCGEOGRAPHICCRS('EPSG:4258', 'ETRS89', 'EPSG:6258', 'EPSG:8901', #15);
+#301=IFCGEOGRAPHICCRS('EPSG:4258', 'ETRS89', 'EPSG:6258', 'EPSG:8901', #15, #12);
 #302=IFCRIGIDOPERATION(#21, #301,IFCPLANEANGLEMEASURE(14.0902217),IFCPLANEANGLEMEASURE(46.3623297), 475.);
 
 
@@ -44,7 +45,7 @@ DATA;
 #50 = IFCLOCALPLACEMENT(#31, #22);
 /* Representation of the Footprint: a polyline with six points */
 #60= IFCPRODUCTDEFINITIONSHAPE($,$,(#61));
-#61= IFCSHAPEREPRESENTATION(#21,'Axis','Curve2D',(#62));
+#61= IFCSHAPEREPRESENTATION(#35,'Axis','Curve2D',(#62));
 #62= IFCPOLYLINE((#63,#64,#67,#68,#65,#66,#63));
 #63 = IFCCARTESIANPOINT((32.58,3.68));
 #64 = IFCCARTESIANPOINT((31.82,9.10));
@@ -65,7 +66,7 @@ DATA;
 #82= IFCCARTESIANPOINT((1.,0.,0.));
 /* Representation of the Cube: a single swept solid shape */
 #90= IFCPRODUCTDEFINITIONSHAPE($,$,(#91));
-#91= IFCSHAPEREPRESENTATION(#21,'Body','SweptSolid',(#92));
+#91= IFCSHAPEREPRESENTATION(#35,'Body','SweptSolid',(#92));
 /* based on a profile (or cross section) of 3m by 4m being extruded by 1.5m */
 #92= IFCEXTRUDEDAREASOLID(#93,$,#4,1.5);
 #93= IFCRECTANGLEPROFILEDEF(.AREA.,'3m x 4m rectangle',$,3.,4.);
