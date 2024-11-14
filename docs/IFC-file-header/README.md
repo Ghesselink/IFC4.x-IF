@@ -71,13 +71,12 @@ Below some examples of Valid and Invalid information for some of the header's fi
 ### organization
 
 **Valid**:
-- `$`
-- `Unknown`
-- `''`
 - `Cool Engineering Firm`
 
 **Invalid**:
-- :warning: There are no strictly Invalid entries here. However, **this field shall not be used to indicate the name of the software company developing the tool used for the IFC export**. This information shall be stored in the _originating_system_ field, as specified below. 
+- :warning: There are no strictly invalid entries here. However, **this field shall not be used to indicate the name of the software company developing the tool used for the IFC export**. This information shall be stored in the _originating_system_ field, as specified below.
+- `Unknown`
+- `''`
 
 
 ### preprocessor_version
@@ -90,7 +89,7 @@ Below some examples of Valid and Invalid information for some of the header's fi
 - `ST-DEVELOPER v16.13`
 
 **Invalid** (examples):
-- `$`, `''`, `Unknown` or anything similar. This field shall be meaningfully provided
+- `''`, `Unknown` or anything similar. This field shall be meaningfully provided
 - `ODA SDAI`, version not provided
 - `IFC Database Version: Work`, not meaningful
 - `Tekla Structures Next`, that is probably the _originating_system_, see next paragraph
